@@ -1,0 +1,21 @@
+/* body {
+  padding: 50px; 
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+} */
+
+a {
+  color: #00B7FF;
+}
+
+/* reportpage */
+
+.reportpage .container1 {
+  background-color: white;
+  /* border-color: rgb(168, 168, 168); */
+  border-style: solid;
+  border-width: thin;
+  padding: 30px;
+  width: 55%;
+  margin: auto;
+  /* box-shadow: 10px 10px 5px rgb(168, 168, 168); */
+}
