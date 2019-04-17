@@ -11,15 +11,17 @@
     <br>
 
     <div class="container1">
-        <form action="/action_page.php">
+        <form action="/" method="POST">
             <p>Repairing Detail: </p>
-            <input type="radio" name="type" value="computer"> Computer<br>
-            <input type="radio" name="type" value="printer/scanner"> Printer/Scanner<br>
-            <input type="radio" name="type" value="network"> Network System<br>
-            <input type="radio" name="type" value="other"> Other<br>
+            <input type="radio" name="repairType" value="Television"> Television<br>
+            <input type="radio" name="repairType" value="Refrigerator"> Refrigerator<br>
+            <input type="radio" name="repairType" value="AirConditioner"> Air Conditioner<br>
+            <input type="radio" name="repairType" value="Microwave"> Microwave<br>
+            <input type="radio" name="repairType" value="WashingMachine"> Washing Machine<br>
+            <input type="radio" name="repairType" value="WaterHeater"> Water Heater<br>
             <br>
             <p>Detail:</p>
-            <textarea rows="4" cols="50" name="detail" form="usrform" placeholder="Enter text here..."></textarea>
+            <textarea rows="4" cols="50" name="description" form="usrform" placeholder="Enter text here..."></textarea>
             <br>
             <input type="submit">
         </form>
