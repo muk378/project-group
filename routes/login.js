@@ -2,7 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 module.exports = function(passport) {
-  
+  /* GET login page. */
+  router.get('/', function(req, res, next) {
+    res.render('login', { LoginPageActiveClass: 'active' });
+  });
+
   // process the login form
   router.post(
     '/',
