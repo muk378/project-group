@@ -9,10 +9,13 @@
         <button type="button" class="btn btn-secondary" onclick="window.location.href='history.html'">History</button>
     </div>
     <br>
-
+    <div>
+        <h3>Success: {{isSuccess}}</h3>
+    </div>
     <div class="container1">
-        <form action="/" method="POST">
+        <form action="/reportpage" method="POST">
             <p>Repairing Detail: </p>
+
             <input type="radio" name="repairType" value="Television"> Television<br>
             <input type="radio" name="repairType" value="Refrigerator"> Refrigerator<br>
             <input type="radio" name="repairType" value="AirConditioner"> Air Conditioner<br>
@@ -21,7 +24,8 @@
             <input type="radio" name="repairType" value="WaterHeater"> Water Heater<br>
             <br>
             <p>Detail:</p>
-            <textarea rows="4" cols="50" name="description" form="usrform" placeholder="Enter text here..."></textarea>
+            <textarea rows="4" cols="50" id="description" name="description"
+                placeholder="Enter text here..."></textarea>
             <br>
             <input type="submit">
         </form>

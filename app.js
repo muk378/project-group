@@ -10,8 +10,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var contactRouter = require('./routes/contact');
 var reportpageRouter = require('./routes/reportpage');
-var loginRouter = require('./routes/login');
-
 var session = require('express-session');
 
 var mongoose = require('mongoose');

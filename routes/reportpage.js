@@ -9,26 +9,28 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-  console.log('params: ', req.params);
-  if (req.params) {
+
+  if (req.body) {
     var repair = new RepairSystem();
 
-    // repair.repairType =
-    //   repair.repairStatus:
-    // repair.description:
-    // repair.createTime:
-    // repair.updateTime:
-    // repair.updateBy:  // userName
+    repair.repairType = req.body.repairType;
+    repair.repairStatus = "ACCEPTED";
+    repair.description = req.body.description;
+    repair.createTime = new Date();
+    repair.updateTime = new Date();
+    repair.updateBy = 'room101';
 
-    // save the user
-    // repair.save(function (err) {
-    //   if (err)
-    //     throw err;
-    //   return done(null, repair);
-    // });
+    // save object
+    repair.save(function (err) {
+      if (err)
+        throw err;
+        res.render('reportpage', {isSuccess: true});
+    });
+  } else {
+    res.render('reportpage');
+
   }
 
-  res.render('reportpage');
 });
 
 module.exports = router;
