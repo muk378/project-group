@@ -4,16 +4,17 @@
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
 var express = require('express');
+var flash = require('express-flash');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var passportConf = require('./config/passport');
+var passportCustom = require('./middleware/passport');
 var path = require('path');
 var serverConf = require('./config/server');
+var session = require('express-session');
 var routes = require('./routes');
 var app = express();
 var port = serverConf.PORT;
-
 
 //=========================[ Middleware ]==============================================
 
@@ -35,23 +36,33 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
 app.use(cookieParser());
 
+// The ability to define a flash message and render it without redirecting the request.
+app.use(flash());
+
+// session secret
+app.use(
+  session({
+    secret: 'project-group-secret',
+    resave: false,
+    saveUninitialized: true
+  })
+);
 
 //=========================[ Initialize ]==============================================
-
-// MongoDb - connect to our database
-mongoose.connect(serverConf.DB_URL, { useNewUrlParser: true }); // connect to our database
-
-// Passport
-passportConf(app, passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+// MongoDb - connect to our database
+mongoose.connect(serverConf.DB_URL, { useNewUrlParser: true }); // connect to our database
+
+// Passport
+passportCustom(app, passport);
+
 // Routing
 routes(app, passport);
 
-
-//============[ Boostrapper ]===============
+//=========================[ Bootstrapper ]==============================================
 
 app.listen(port, () => console.log('App listening on port ' + port));

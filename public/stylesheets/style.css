@@ -4,7 +4,7 @@
 } */
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 /* repairing */
@@ -18,4 +18,10 @@ a {
   width: 55%;
   margin: auto;
   /* box-shadow: 10px 10px 5px rgb(168, 168, 168); */
+}
+
+.navbar-nav .nav-item-divider {
+  border-right: #adb5bd solid 2px;
+  margin: 0 10px;
+  line-height: 20px;
 }

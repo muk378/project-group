@@ -27,17 +27,25 @@
           <li class="nav-item {{RepairPageActiveClass}}"><a class="nav-link" href="/repairing">Report Online</a></li>
           <li class="nav-item {{ContactPageActiveClass}}"><a class="nav-link" href="/contact">Contact us</a></li>
         </ul>
-        <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
-          <li class="nav-item"><a class="nav-link" href="/login">Sign in</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav d-lg-none">
-          <li class="nav-item-divider"></li>
-          <li class="nav-item"><a class="nav-link" href="/login">Sign in</a></li>
-        </ul>
+        <ul class="navbar-nav ml-2 order-3">
+          {{#if authenticated}} 
+            <li class="nav-item my-auto">
+              <span class="text-primary text-capitalize">{{user.userName}}</h4>
+            </li> 
+            <li class="nav-item-divider my-auto">&nbsp;</li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Sign out</a>
+            </li> 
+          {{^}} 
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Sign in</a>
+            </li>
+          {{/if}} 
+        </ul>        
       </div>
     </div>
-  </nav> {{{body}}}
+  </nav>
+  {{{body}}}
   <!-- Footer -->
   <footer class="page-footer font-small white">
     <!-- Copyright -->

@@ -1,19 +1,7 @@
-// config/passport.js
+// middleware/passport.js
 
 // expose this function to our app using module.exports
 module.exports = function(app, passport) {
-  // required for passport
-  var session = require('express-session');
-
-  // session secret
-  app.use(
-    session({
-      secret: 'project-group-secret',
-      resave: false,
-      saveUninitialized: true
-    })
-  );
-
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
 
@@ -65,10 +53,16 @@ module.exports = function(app, passport) {
           if (err) return done(err);
 
           // if no user is found, return the message
-          if (!user) return done(null, false);
+          if (!user)
+            return done(null, false, {
+              message: 'Invalid username or password.'
+            });
 
           // if the user is found but the password is wrong
-          if (!user.validPassword(password)) return done(null, false);
+          if (!user.validPassword(password))
+            return done(null, false, {
+              message: 'Invalid username or password.'
+            });
 
           // all is well, return successful user
           return done(null, user);

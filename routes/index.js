@@ -4,17 +4,22 @@ module.exports = function(app, passport) {
   var createError = require('http-errors');
   var contactRouter = require('./contact');
   var homeRouter = require('./home');
-  var loginRouter = require('./login');
+  var authenRouter = require('./authen');
   var repairingRouter = require('./repairing');
 
-  
+  //======================[ Authenticate Handler ]==============================
+
+  app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    res.locals.authenticated = req.user !== undefined;
+    next();
+  });
+
   //======================[ Routing Config ]==============================
-  app.use('/', homeRouter);
   app.use('/contact', contactRouter);
   app.use('/repairing', repairingRouter);
-  app.use('/login', loginRouter(passport));
+  app.use('/', homeRouter, authenRouter(passport));
 
-  
   //======================[ Error Handler ]==============================
 
   // catch 404 and forward to error handler
