@@ -24,24 +24,26 @@
       <div class="collapse navbar-collapse" id="globalNavbar">
         <ul class="navbar-nav mr-auto order-1">
           <li class="nav-item {{HomePageActiveClass}}"><a class=" nav-link" href="/">Home</a></li>
-          <li class="nav-item {{RepairPageActiveClass}}"><a class="nav-link" href="/repairing">Report Online</a></li>
+          {{#if authenticated}}
+            <li class="nav-item {{RepairPageActiveClass}}"><a class="nav-link" href="/repairing">Report Online</a></li>
+          {{/if}}
           <li class="nav-item {{ContactPageActiveClass}}"><a class="nav-link" href="/contact">Contact us</a></li>
         </ul>
         <ul class="navbar-nav ml-2 order-3">
-          {{#if authenticated}} 
+          {{#if authenticated}}
             <li class="nav-item my-auto">
               <span class="text-primary text-capitalize">{{user.userName}}</h4>
-            </li> 
+            </li>
             <li class="nav-item-divider my-auto">&nbsp;</li>
             <li class="nav-item">
               <a class="nav-link" href="/logout">Sign out</a>
-            </li> 
-          {{^}} 
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Sign in</a>
             </li>
-          {{/if}} 
-        </ul>        
+            {{^}}
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Sign in</a>
+              </li>
+          {{/if}}
+        </ul>
       </div>
     </div>
   </nav>
