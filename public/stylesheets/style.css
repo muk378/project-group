@@ -4,12 +4,12 @@
 } */
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
-/* reportpage */
+/* repairing */
 
-.reportpage .container1 {
+.repairing .container1 {
   background-color: white;
   /* border-color: rgb(168, 168, 168); */
   border-style: solid;
@@ -18,4 +18,10 @@ a {
   width: 55%;
   margin: auto;
   /* box-shadow: 10px 10px 5px rgb(168, 168, 168); */
+}
+
+.navbar-nav .nav-item-divider {
+  border-right: #adb5bd solid 2px;
+  margin: 0 10px;
+  line-height: 20px;
 }
