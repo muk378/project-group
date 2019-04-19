@@ -3,7 +3,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('home', { HomePageActiveClass: 'active' });
+  res.render('home', {
+    title: 'Best Electronic',
+    homePageActiveClass: 'active'
+  });
 });
 
 module.exports = router;

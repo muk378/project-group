@@ -5,7 +5,10 @@ var RepairSystem = require('../models/repairsystem');
 
 /* GET contact page. */
 router.get('/', function(req, res, next) {
-  res.render('repairing', { RepairPageActiveClass: 'active' });
+  res.render('repairing', {
+    title: 'Repairing Online',
+    repairPageActiveClass: 'active'
+  });
 });
 
 router.post('/', function(req, res, next) {
