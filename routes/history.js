@@ -1,5 +1,10 @@
 var express = require('express');
 var router = express.Router();
+
+var fs = require('fs-extra');
+var hbs = require('hbs');
+var path = require('path');
+
 // load up the user model
 var RepairSystem = require('../models/repairsystem');
 
@@ -57,8 +62,28 @@ router.get('/list', async (req, res) => {
         }
         result.data = result.data.map(e => e.getList());
       }
+
       res.json(result);
     });
+});
+
+/* POST: generate history list with template */
+router.post('/list/export', async (req, res) => {
+  try {
+    var filePath = path.join('./', 'views', 'history-export.hbs');
+    var html = await fs.readFile(filePath, 'utf-8');
+    var docs = await RepairSystem.find({}).exec();
+    var result = {
+      data: []
+    };
+    if (docs && docs.length > 0) {
+      result.data = docs.map(e => e.getList());
+    }
+    var content = await hbs.compile(html)(result);
+    res.send(content);
+  } catch (er) {
+    console.log('blocking: ', er);
+  }
 });
 
 module.exports = router;

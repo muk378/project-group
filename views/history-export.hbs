@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 class="text-uppercase text-center">History</h2>
+    <table id="historyTable" style="width:100%">
+        <thead>
+            <tr>
+                <th>Repair Type</th>
+                <th>Repair Status</th>
+                <th>Detail</th>
+                <th>By</th>
+                <th>Created Date</th>
+                <th>Updated Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            <tr>
+                <td>{{this.repairType}}</td>
+                <td>{{this.repairStatus}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.updateBy}}</td>
+                <td>{{this.createdAt}}</td>
+                <td>{{this.updatedAt}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
