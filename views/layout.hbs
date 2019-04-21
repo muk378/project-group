@@ -4,14 +4,14 @@
 <head>
   <title>{{title}}</title>
   <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <link rel='stylesheet' href='/stylesheets/style.css' />
   <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   {{#if isRepairingPage}}
-    <link rel="stylesheet" href="//cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css" />
-    <script src="//cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   {{/if}}
+  <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
@@ -29,12 +29,13 @@
         <ul class="navbar-nav mr-auto order-1">
           <li class="nav-item {{homePageActiveClass}}"><a class=" nav-link" href="/">Home</a></li>
           {{#if authenticated}}
-            <li class="nav-item {{repairPageActiveClass}}"><a class="nav-link" href="/repairing">Report Online</a></li>
+          <li class="nav-item {{repairPageActiveClass}}"><a class="nav-link" href="/repairing">Report Online</a></li>
           {{/if}}
           <li class="nav-item {{contactPageActiveClass}}"><a class="nav-link" href="/contact">Contact us</a></li>
         </ul>
-        <ul class="navbar-nav ml-2 order-3">
-          {{#if authenticated}}
+        <ul class="navbar-nav order-2">
+          <form class="form-inline my-2 my-lg-0">
+            {{#if authenticated}}
             <li class="nav-item my-auto">
               <span class="text-primary text-capitalize">{{user.userName}}</h4>
             </li>
@@ -43,10 +44,11 @@
               <a class="nav-link" href="/logout">Sign out</a>
             </li>
             {{^}}
-              <li class="nav-item">
-                <a class="nav-link" href="/login">Sign in</a>
-              </li>
-          {{/if}}
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Sign in</a>
+            </li>
+            {{/if}}
+          </form>
         </ul>
       </div>
     </div>

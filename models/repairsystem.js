@@ -26,5 +26,16 @@ repairSystemSchema.methods.getList = function() {
   };
 };
 
+repairSystemSchema.statics.getColumnNames = function() {
+  return [
+    'repairType',
+    'repairStatus',
+    'description',
+    'updateBy',
+    'createdAt',
+    'updatedAt'
+  ];
+};
+
 // create the model for RepairSystem and expose it to our app
 module.exports = mongoose.model('RepairSystem', repairSystemSchema);
