@@ -21,7 +21,13 @@ a {
 }
 
 .navbar-nav .nav-item-divider {
-  border-right: #adb5bd solid 2px;
+  border-right: #c3c6ca solid 2px;
   margin: 0 10px;
-  line-height: 20px;
+  line-height: 16px;
+}
+
+.dataTables_processing {
+  padding-top: 12px !important;
+  background: rgba(204, 204, 204, 0.88) !important;
+  height: 55px !important;
 }

@@ -1,4 +1,4 @@
-// middleware/passport.js
+// middlewares/passport.js
 
 // expose this function to our app using module.exports
 module.exports = function(app, passport) {

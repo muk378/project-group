@@ -6,6 +6,8 @@ module.exports = function(app, passport) {
   var homeRouter = require('./home');
   var authenRouter = require('./authen');
   var repairingRouter = require('./repairing');
+  var authenFilter = require('../middlewares/authen');
+  var historyRouter = require('./history');
 
   //======================[ Authenticate Handler ]==============================
 
@@ -17,7 +19,8 @@ module.exports = function(app, passport) {
 
   //======================[ Routing Config ]==============================
   app.use('/contact', contactRouter);
-  app.use('/repairing', repairingRouter);
+  app.use('/repairing', authenFilter, repairingRouter);
+  app.use('/history', authenFilter, historyRouter);
   app.use('/', homeRouter, authenRouter(passport));
 
   //======================[ Error Handler ]==============================

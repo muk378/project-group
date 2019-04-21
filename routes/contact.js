@@ -3,7 +3,10 @@ var router = express.Router();
 
 /* GET contact page. */
 router.get('/', function(req, res, next) {
-  res.render('contact', { ContactPageActiveClass : 'active' });
+  res.render('contact', {
+    title: 'Contact Us',
+    contactPageActiveClass: 'active'
+  });
 });
 
 module.exports = router;
