@@ -5,7 +5,10 @@ var RepairSystem = require('../models/repairsystem');
 
 /* GET contact page. */
 router.get('/', function(req, res, next) {
-  res.render('repairing', { RepairPageActiveClass: 'active' });
+  res.render('repairing', {
+    title: 'Repairing Online',
+    repairPageActiveClass: 'active'
+  });
 });
 
 router.post('/', function(req, res, next) {
@@ -15,9 +18,7 @@ router.post('/', function(req, res, next) {
     repair.repairType = req.body.repairType;
     repair.repairStatus = 'ACCEPTED';
     repair.description = req.body.description;
-    repair.createTime = new Date();
-    repair.updateTime = new Date();
-    repair.updateBy = 'room101';
+    repair.updateBy = req.user ? req.user.userName : 'System';
 
     // save object
     repair.save(function(err) {

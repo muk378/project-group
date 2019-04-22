@@ -7,7 +7,8 @@ module.exports = function(passport) {
     var error = req.flash()['error'];
     var showAnimation = !error ? 'animate' : '';
     res.render('login', {
-      LoginPageActiveClass: 'active',
+      title: 'Login',
+      loginPageActiveClass: 'active',
       error,
       showAnimation
     });

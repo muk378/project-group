@@ -3,28 +3,34 @@
         <h1 class="text-uppercase text-center">Repairing System </h1>
     </div>
     <br>
-    <div class="container" class="navbar-right">
-        <button type="button" class="btn btn-secondary" onclick="window.location.href='history.html'">History</button>
+    <div class="container text-right px-5">
+        <a class="btn btn-secondary" href="/history">History</a>
     </div>
     <br>
-    <div>
-        <h3>Success: {{isSuccess}}</h3>
-    </div>
     <div class="container1">
-        <form action="/repairing" method="POST">
+        <form action="/repairing" method="POST" id="repairingForm">
             <p>Repairing Detail: </p>
-            <input type="radio" name="repairType" value="Television"> Television<br>
-            <input type="radio" name="repairType" value="Refrigerator"> Refrigerator<br>
-            <input type="radio" name="repairType" value="AirConditioner"> Air Conditioner<br>
-            <input type="radio" name="repairType" value="Microwave"> Microwave<br>
-            <input type="radio" name="repairType" value="WashingMachine"> Washing Machine<br>
-            <input type="radio" name="repairType" value="WaterHeater"> Water Heater<br>
+            <input type="radio" name="repairType" value="Television" required> Television<br>
+            <input type="radio" name="repairType" value="Refrigerator" required> Refrigerator<br>
+            <input type="radio" name="repairType" value="AirConditioner" required> Air Conditioner<br>
+            <input type="radio" name="repairType" value="Microwave" required> Microwave<br>
+            <input type="radio" name="repairType" value="WashingMachine" required> Washing Machine<br>
+            <input type="radio" name="repairType" value="WaterHeater" required> Water Heater<br>
             <br>
             <p>Detail:</p>
             <textarea rows="4" cols="50" id="description" name="description"
-                placeholder="Enter text here..."></textarea>
+                placeholder="Enter text here..." required></textarea>
             <br>
-            <input type="submit">
+            <input type="submit" class="btn btn-primary">
         </form>
     </div>
+    <div class="modal fade submit-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+                <div class="modal-body font-weight-bolder">Submitting in progress...</div>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="scripts/repairing.js"></script>
