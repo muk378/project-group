@@ -2,9 +2,9 @@
 
 'use strict';
 (function Repairing($) {
-  $(document).ready(() => {
-    $('#repairingForm').submit((e) => {
-      $(".submit-modal").modal('show');
+  $(document).ready(function() {
+    $('#repairingForm').submit(function(e) {
+      $('.submit-modal').modal('show');
     });
   });
 })($);

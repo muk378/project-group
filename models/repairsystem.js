@@ -21,8 +21,8 @@ repairSystemSchema.methods.getList = function() {
     repairStatus: this.repairStatus,
     description: this.description,
     updateBy: this.updateBy,
-    createdAt: this.createdAt,
-    updatedAt: this.updatedAt
+    createdAt: this.createdAt.toLocaleString("th-TH"),
+    updatedAt: this.updatedAt.toLocaleString("th-TH")
   };
 };
 

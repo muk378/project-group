@@ -4,6 +4,7 @@ var router = express.Router();
 var fs = require('fs-extra');
 var hbs = require('hbs');
 var path = require('path');
+var pdf = require('html-pdf');
 
 // load up the user model
 var RepairSystem = require('../models/repairsystem');
@@ -60,7 +61,7 @@ router.get('/list', async (req, res) => {
         if (query.start && query.length) {
           result.data = docs.splice(+query.start, +query.length);
         }
-        result.data = result.data.map(e => e.getList());
+        result.data = result.data.map((e) => e.getList());
       }
 
       res.json(result);
@@ -72,17 +73,36 @@ router.post('/list/export', async (req, res) => {
   try {
     var filePath = path.join('./', 'views', 'history-export.hbs');
     var html = await fs.readFile(filePath, 'utf-8');
-    var docs = await RepairSystem.find({}).exec();
+    var criteria = {};
+    if (req.body.search) {
+      var filter = new RegExp(req.body.search, 'i');
+      criteria = {
+        $or: [
+          { repairType: filter },
+          { repairStatus: filter },
+          { description: filter }
+        ]
+      };
+    }
+
+    var docs = await RepairSystem.find(criteria).exec();
     var result = {
       data: []
     };
     if (docs && docs.length > 0) {
-      result.data = docs.map(e => e.getList());
+      result.data = docs.map((e) => e.getList());
     }
+
+    // Setting response to 'attachment' (download).
+    res.setHeader('Content-disposition', 'attachment; filename="history.pdf"');
+    res.setHeader('Content-type', 'application/pdf');
+
     var content = await hbs.compile(html)(result);
-    res.send(content);
+    pdf.create(content).toStream(function(err, stream) {
+      stream.pipe(res);
+    });
   } catch (er) {
-    console.log('blocking: ', er);
+    res.send('No record found.');
   }
 });
 
