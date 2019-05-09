@@ -1,3 +1,15 @@
+<style type="text/css">
+    footer {
+        background-color: gray;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 60px;
+        width: 100%;
+        overflow: hidden;
+    }
+</style>
+
 <div class="repairing">
     <div class="container-fluid">
         <h1 class="text-uppercase text-center">Repairing System </h1>
@@ -18,8 +30,8 @@
             <input type="radio" name="repairType" value="WaterHeater" required> Water Heater<br>
             <br>
             <p>Detail:</p>
-            <textarea rows="4" cols="50" id="description" name="description"
-                placeholder="Enter text here..." required></textarea>
+            <textarea rows="4" cols="50" id="description" name="description" placeholder="Enter text here..."
+                required></textarea>
             <br>
             <input type="submit" class="btn btn-primary">
         </form>
@@ -33,4 +45,12 @@
         </div>
     </div>
 </div>
+<footer class="page-footer font-small white">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 black" style="background: gray">© 2018 Copyright: <a
+            class="text-uppercase">Best Electronic</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
 <script src="scripts/repairing.js"></script>

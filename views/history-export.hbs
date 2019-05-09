@@ -1,27 +1,111 @@
 <div class="container">
-    <h2 class="text-uppercase text-center">History</h2>
-    <table id="historyTable" style="width:100%">
-        <thead>
-            <tr>
-                <th>Repair Type</th>
-                <th>Repair Status</th>
-                <th>Detail</th>
-                <th>By</th>
-                <th>Created Date</th>
-                <th>Updated Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each data}}
-            <tr>
-                <td>{{this.repairType}}</td>
-                <td>{{this.repairStatus}}</td>
-                <td>{{this.description}}</td>
-                <td>{{this.updateBy}}</td>
-                <td>{{this.createdAt}}</td>
-                <td>{{this.updatedAt}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="invoice-title">
+                {{!-- <img src="https://i.pinimg.com/originals/55/23/92/552392630c693a1197ae2471e9526355.jpg" alt="Logo Image" class="center" style="width: 80px;"> --}}
+                <br>
+                <img src="https://pbs.twimg.com/profile_images/434076325926559745/FsEvRcHf.png" alt="Logo Image"
+                    class="center" style="width: 80px;">
+
+                <h1 class="text-uppercase text-center" style="text-align: center; ">Best Condo</h1>
+            </div>
+
+            <div class="row" style="text-align:right; font-family: 'Times New Roman', Times, serif;">
+                <div class="col-xs-6 text-right">
+                    <address>
+
+                        {{!-- <h4>Best Condo</h4> --}}
+                        <p>บริษัท เบสท์ คอนโด จำกัด</p>
+                        <p>เลขที่ 123 ถนนบราชชนนี แขวงทวีวัฒนา</p>
+                        <p>เขตทวีวัฒนา กรุงเทพมหานคร 10170</p>
+                        <p>โทรศัพท์: +662 000 0000 or +662 999 9999</p>
+                        <p>โทรสาร: +662 999 9990</p>
+                        <p>อีเมล: Webest@best.or.th</p>
+
+                    </address>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <h3>Room: {{this.updateBy}}</h3>
+
+                <div class="container">
+                    <table id="historyTable" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Repair Type</th>
+                                <th>Repair Status</th>
+                                <th>Detail</th>
+                                <th>By</th>
+                                <th>Created Date</th>
+                                <th>Updated Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each data}}
+                            <tr>
+                                <td id="repairType">{{this.repairType}}</td>
+                                <td>{{this.repairStatus}}</td>
+                                <td>{{this.description}}</td>
+                                <td>{{this.updateBy}}</td>
+                                <td>{{this.createdAt}}</td>
+                                <td>{{this.updatedAt}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 </div>
+
+<style>
+    table,
+    td,
+    p{
+        font-family: 'Times New Roman';
+    },
+    th {
+        border: 1px solid black;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    th {
+        background-color: rgb(160, 94, 204);
+        color: white;
+        font-weight: bold;
+    }
+
+    #historyTable {
+        border-collapse: collapse;
+    }
+
+    #repairType {
+        text-align: left;
+    }
+
+    .container {
+        width: 750px;
+        margin: 0 auto;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .address {
+        position: absolute;
+        right: 0;
+        width: 200px;
+        margin: 10px;
+    }
+</style>
