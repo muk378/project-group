@@ -2,7 +2,6 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="invoice-title">
-                {{!-- <img src="https://i.pinimg.com/originals/55/23/92/552392630c693a1197ae2471e9526355.jpg" alt="Logo Image" class="center" style="width: 80px;"> --}}
                 <br>
                 <img src="https://pbs.twimg.com/profile_images/434076325926559745/FsEvRcHf.png" alt="Logo Image"
                     class="center" style="width: 80px;">
@@ -10,10 +9,9 @@
                 <h1 class="text-uppercase text-center" style="text-align: center; ">Best Condo</h1>
             </div>
 
-            <div class="row" style="text-align:right; font-family: 'Times New Roman', Times, serif;">
-                <div class="col-xs-6 text-right">
+            <div class="row" style="text-align:center; font-family: 'Times New Roman', Times, serif;">
+                <div class="col-xs-6">
                     <address>
-
                         {{!-- <h4>Best Condo</h4> --}}
                         <p>บริษัท เบสท์ คอนโด จำกัด</p>
                         <p>เลขที่ 123 ถนนบราชชนนี แขวงทวีวัฒนา</p>
@@ -21,15 +19,12 @@
                         <p>โทรศัพท์: +662 000 0000 or +662 999 9999</p>
                         <p>โทรสาร: +662 999 9990</p>
                         <p>อีเมล: Webest@best.or.th</p>
-
                     </address>
                 </div>
             </div>
 
             <div class="container">
-
-                <h3>Room: {{this.updateBy}}</h3>
-
+                
                 <div class="container">
                     <table id="historyTable" style="width:100%">
                         <thead>
@@ -66,9 +61,6 @@
 <style>
     table,
     td,
-    p{
-        font-family: 'Times New Roman';
-    },
     th {
         border: 1px solid black;
         text-align: center;
